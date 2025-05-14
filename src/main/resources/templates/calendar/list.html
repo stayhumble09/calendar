@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.7/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@6.1.15/index.global.min.js"></script>
+    <style>
+        #calendar {
+            width: 1200px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+<h1>Full Calendar</h1>
+<div id="calendar"></div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const calendarEl = document.getElementById('calendar');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: "dayGridMonth",
+            googleCalendarApiKey:"AIzaSyBhvy6_wIAqWT0rBusAiSKT4bh0xisKoX8",
+            eventSources: [
+                {
+                    googleCalendarId: "ko.south_korea#holiday@group.v.calendar.google.com",
+                    backGroundColor:"#f00",
+                    borderColor:"#f00",
+                },
+            ],
+            events:[
+                {
+                    title:"수업",
+                    start:"2025-05-14",
+                    description: "spring 수업",
+                    color:"#f00",
+                },
+                {
+                    title:"프로젝트 시작",
+                    start:"2025-05-20",
+                    end:"2025-05-30",
+                    description: "떨린다",
+                },
+            ],
+        });
+        calendar.render();
+    });
+</script>
+</body>
+</html>
